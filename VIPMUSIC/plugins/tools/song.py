@@ -19,7 +19,7 @@ async def video_command(client: app, message: Message):
 
 async def download_media(message: Message, audio: bool = True):
     command_name = "audio" if audio else "video"
-    aux = await message.reply_text(f"**🔄 𝐏𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠 𝐚𝐧𝐝 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 {command_name}...**")
+    aux = await message.reply_text(f"** ᴘʀᴏᴄᴇssɪɴɢ ᴀɴᴅ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ 🌙 {command_name}...**")
 
     if len(message.command) < 2:
         return await aux.edit(f"**Usage:** `/song` or `/audio` for audio, `/video` for video")
@@ -64,12 +64,12 @@ async def download_video_with_quality(quality_itag, media_link, media_title, aud
         "outtmpl": f"{DOWNLOAD_PATH}/{media_title}.mp3" if audio else f"{DOWNLOAD_PATH}/{media_title}.mp4",
     }
 
-    await aux.edit(f"**𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐯𝐢𝐝𝐞𝐨...**")
+    await aux.edit(f"**ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴠɪᴅᴇᴏ...**")
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         await asyncio.to_thread(ydl.download, [media_link])
 
-    await aux.edit(f"**𝐔𝐩𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐯𝐢𝐝𝐞𝐨...**")
+    await aux.edit(f"**ᴜᴘʟᴏᴀᴅɪɴɢ ᴠɪᴅᴇᴏ...**")
 
     return ydl_opts
 
@@ -78,7 +78,7 @@ async def process_callback_query(client, query):
     try:
         quality_itag, media_link, media_title, audio_str = query.data.split('_', 3)
         audio = audio_str.lower() == 'true'
-        aux = await query.message.reply_text(f"**𝐏𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠 𝐯𝐢𝐝𝐞𝐨...**")
+        aux = await query.message.reply_text(f"**ᴘʀᴏᴄᴇssɪɴɢ ᴠɪᴅᴇᴏ...**")
         ydl_opts = await download_video_with_quality(quality_itag, media_link, media_title, audio, aux)
 
         if audio:
