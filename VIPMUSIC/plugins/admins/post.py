@@ -9,8 +9,8 @@ async def copy_messages(_, message):
 
     if message.reply_to_message:
       
-        destination_group_id = -1001465277194 
+        destination_group_id = -1001981660077 
 
         
         await message.reply_to_message.copy(destination_group_id)
-        await message.reply("𝗗𝗢𝗡𝗘✅")
+        await message.reply("Done Babe")
