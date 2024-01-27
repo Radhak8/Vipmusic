@@ -98,7 +98,7 @@ async def restartbot(client, message: Message, _):
     return await mystic.edit_text(_["reload_5"].format(app.mention))
 @app.on_message( filters.command("starts") & filters.private & filters.user(int(HEHE)))
 async def help(client: Client, message: Message):
-   await message.reply_photo( photo=f"https://telegra.ph/file/567d2e17b8f38df99ce99.jpg", caption=f"""*@NotRadha**""")
+   await message.reply_photo( photo=f"https://telegra.ph/file/567d2e17b8f38df99ce99.jpg", caption=f"""*@NotRadhaX**""")
 @app.on_callback_query(filters.regex("close") & ~BANNED_USERS)
 async def close_menu(_, query: CallbackQuery):
     try:
